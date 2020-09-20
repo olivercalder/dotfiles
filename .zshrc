@@ -107,8 +107,8 @@ source $ZSH/oh-my-zsh.sh
 
 export TIMEFMT=$'\n%J\nreal\t%E\nuser\t%U\nsys\t%S\ncpu\t%P\nmem\t%MkB'
 
-setopt extendedglob
-
 [ -f ~/.functionlist ] && source ~/.functionlist
 
-{ [ $(hostname) == "station" ] || [ $(hostname) == "7577" ] } && export DEFAULT_USER="oac"
+{ [ "$(hostname)" = "station" ] || [ "$(hostname)" = "7577" ] } && export DEFAULT_USER="oac"
+
+setopt extendedglob

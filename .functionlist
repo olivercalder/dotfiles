@@ -9,9 +9,6 @@ export SVN_EDITOR="$VISUAL"
 # Alias for vim
 alias vi=vim
 
-# Add scripts directory to the PATH
-#echo $PATH | grep $HOME/coding/scripts > /dev/null || export PATH=$PATH:$HOME/coding/scripts/backup:$HOME/coding/scripts/common:$HOME/coding/pop:$HOME/coding/scripts/remote:$HOME/coding/scripts/station
-
 # if running bash
 if [ -n "$BASH_VERSION" ]; then
     # Set bash options
