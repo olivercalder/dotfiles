@@ -1,0 +1,34 @@
+#!/bin/bash
+# This file contains user-created functions to be sourced in .bashrc or .zshrc
+
+# Set vim as default text editor
+export EDITOR=vim
+export VISUAL=vim
+export SVN_EDITOR="$VISUAL"
+
+# Alias for vim
+alias vi=vim
+
+# Add scripts directory to the PATH
+#echo $PATH | grep $HOME/coding/scripts > /dev/null || export PATH=$PATH:$HOME/coding/scripts/backup:$HOME/coding/scripts/common:$HOME/coding/pop:$HOME/coding/scripts/remote:$HOME/coding/scripts/station
+
+# if running bash
+if [ -n "$BASH_VERSION" ]; then
+    # Set bash options
+    shopt -s autocd
+    shopt -s cdspell
+    shopt -s extglob
+fi
+
+# Aliases for ls
+alias lsc="ls -F --color=never" 
+alias lsf="ls -F --color"
+
+# Alias for vim navigation out of directory
+alias :q="cd .."
+
+# Alias for open to run xdg-open rather than openvt
+alias open="xdg-open"
+
+# IP address of Raspberry Pi
+export PI_IP="192.168.1.194"
