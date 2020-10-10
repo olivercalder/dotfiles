@@ -66,6 +66,6 @@ if [ -d "$HOME/coding/scripts/pop" ]; then
     PATH="$HOME/coding/scripts/pop:$PATH"
 fi
 
-if [ -d "$HOME/coding/scripts/station" ]; then
-    PATH="$HOME/coding/scripts/station:$PATH"
+if [ -d "$HOME/coding/scripts/7577" ]; then
+    PATH="$HOME/coding/scripts/7577:$PATH"
 fi
