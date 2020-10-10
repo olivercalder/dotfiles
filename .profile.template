@@ -34,6 +34,7 @@ if [ -d "$HOME/.local/bin" ]; then
 fi
 
 rustup --version 1>/dev/null 2>/dev/null && [ -z "$(echo $PATH | grep ".cargo/bin")" ] && {
+    source "$HOME/.cargo/env"
     export PATH="$HOME/.cargo/bin:$PATH"
 }
 
