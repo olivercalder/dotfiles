@@ -48,3 +48,4 @@ go version 1>/dev/null 2>/dev/null && {
 if [[ $XDG_SESSION_TYPE == "wayland" ]]; then
     export MOZ_ENABLE_WAYLAND=1
 fi
+
