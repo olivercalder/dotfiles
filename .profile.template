@@ -28,7 +28,6 @@ fi
 
 if [ -d "$HOME/.cargo" ] && [ -z "$(echo $PATH | grep ".cargo/bin")" ]; then
     source "$HOME/.cargo/env"
-    export PATH="$HOME/.cargo/bin:$PATH"
 fi
 
 go version 1>/dev/null 2>/dev/null && {
