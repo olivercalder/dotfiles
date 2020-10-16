@@ -64,19 +64,22 @@ HIST_STAMPS="yyyy-mm-dd"
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
+CUSTOM="$ZSH_CUSTOM"
+[ -n "$CUSTOM" ] || CUSTOM="$ZSH/custom"
+
 TMPWD="$(pwd)"
-if [ ! -d "$ZSH_CUSTOM/plugins/zsh-autosuggestions" ]; then
-    cd "$ZSH_CUSTOM/plugins"
+if [ ! -d "$CUSTOM/plugins/zsh-autosuggestions" ]; then
+    cd "$CUSTOM/plugins"
     git clone "https://github.com/zsh-users/zsh-autosuggestions.git"
     cd "$TMPWD"
 fi
-if [ ! -d "$ZSH_CUSTOM/plugins/zsh-completions" ]; then
-    cd "$ZSH_CUSTOM/plugins"
+if [ ! -d "$CUSTOM/plugins/zsh-completions" ]; then
+    cd "$CUSTOM/plugins"
     git clone "https://github.com/zsh-users/zsh-completions.git"
     cd "$TMPWD"
 fi
-if [ ! -d "$ZSH_CUSTOM/plugins/zsh-syntax-highlighting" ]; then
-    cd "$ZSH_CUSTOM/plugins"
+if [ ! -d "$CUSTOM/plugins/zsh-syntax-highlighting" ]; then
+    cd "$CUSTOM/plugins"
     git clone "https://github.com/zsh-users/zsh-syntax-highlighting.git"
     cd "$TMPWD"
 fi
