@@ -64,6 +64,23 @@ HIST_STAMPS="yyyy-mm-dd"
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
+TMPWD="$(pwd)"
+if [ ! -d "$ZSH_CUSTOM/plugins/zsh-autosuggestions" ]; then
+    cd "$ZSH_CUSTOM/plugins"
+    git clone "https://github.com/zsh-users/zsh-autosuggestions.git"
+    cd "$TMPWD"
+fi
+if [ ! -d "$ZSH_CUSTOM/plugins/zsh-completions" ]; then
+    cd "$ZSH_CUSTOM/plugins"
+    git clone "https://github.com/zsh-users/zsh-completions.git"
+    cd "$TMPWD"
+fi
+if [ ! -d "$ZSH_CUSTOM/plugins/zsh-syntax-highlighting" ]; then
+    cd "$ZSH_CUSTOM/plugins"
+    git clone "https://github.com/zsh-users/zsh-syntax-highlighting.git"
+    cd "$TMPWD"
+fi
+
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
@@ -73,6 +90,7 @@ plugins=(
     git
     colorize
     vi-mode
+    zsh-autosuggestions
     zsh-completions
     zsh-syntax-highlighting
 )
