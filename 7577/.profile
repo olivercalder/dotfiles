@@ -24,12 +24,12 @@ fi
 
 # set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/bin" ]; then
-    PATH="$HOME/bin:$PATH"
+    export PATH="$HOME/bin:$PATH"
 fi
 
 # set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/.local/bin" ]; then
-    PATH="$HOME/.local/bin:$PATH"
+    export PATH="$HOME/.local/bin:$PATH"
 fi
 
 if [ -d "$HOME/.cargo" ] && [ -z "$(echo $PATH | grep ".cargo/bin")" ]; then
@@ -48,21 +48,21 @@ if [[ $XDG_SESSION_TYPE == "wayland" ]]; then
 fi
 
 if [ -d "$HOME/coding/scripts/common" ]; then
-    PATH="$HOME/coding/scripts/common:$PATH"
+    export PATH="$HOME/coding/scripts/common:$PATH"
 fi
 
 if [ -d "$HOME/coding/scripts/backup" ]; then
-    PATH="$HOME/coding/scripts/backup:$PATH"
+    export PATH="$HOME/coding/scripts/backup:$PATH"
 fi
 
 if [ -d "$HOME/coding/scripts/remote" ]; then
-    PATH="$HOME/coding/scripts/remote:$PATH"
+    export PATH="$HOME/coding/scripts/remote:$PATH"
 fi
 
 if [ -d "$HOME/coding/scripts/pop" ]; then
-    PATH="$HOME/coding/scripts/pop:$PATH"
+    export PATH="$HOME/coding/scripts/pop:$PATH"
 fi
 
 if [ -d "$HOME/coding/scripts/7577" ]; then
-    PATH="$HOME/coding/scripts/7577:$PATH"
+    export PATH="$HOME/coding/scripts/7577:$PATH"
 fi
