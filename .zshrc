@@ -75,25 +75,20 @@ HIST_STAMPS="yyyy-mm-dd"
 CUSTOM="$ZSH_CUSTOM"
 [ -n "$CUSTOM" ] || CUSTOM="$ZSH/custom"
 
-TMPWD="$(pwd)"
-if [ ! -d "$CUSTOM/plugins/zsh-autosuggestions" ]; then
-    cd "$CUSTOM/plugins"
-    git clone "https://github.com/zsh-users/zsh-autosuggestions.git"
-    chmod g-w o-w "zsh-autosuggestions"
-    cd "$TMPWD"
-fi
-if [ ! -d "$CUSTOM/plugins/zsh-completions" ]; then
-    cd "$CUSTOM/plugins"
-    git clone "https://github.com/zsh-users/zsh-completions.git"
-    chmod g-w o-w "zsh-completions"
-    cd "$TMPWD"
-fi
-if [ ! -d "$CUSTOM/plugins/zsh-syntax-highlighting" ]; then
-    cd "$CUSTOM/plugins"
-    git clone "https://github.com/zsh-users/zsh-syntax-highlighting.git"
-    chmod g-w o-w "zsh-syntax-highlighting"
-    cd "$TMPWD"
-fi
+install-plugin() {
+    TMPWD="$(pwd)"
+    name="$(basename \"$1\" | sed 's/\.git//')"
+    if [ ! -d "$CUSTOM/plugins/$name" ]; then
+        cd "$CUSTOM/plugins"
+        git clone "$1"
+        chmod g-w,o-w "$name"
+        cd "$TMPWD"
+    fi
+}
+
+install-plugin "https://github.com/zsh-users/zsh-autosuggestions.git"
+install-plugin "https://github.com/zsh-users/zsh-completions.git"
+install-plugin "https://github.com/zsh-users/zsh0syntax-highlighting.git"
 
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
