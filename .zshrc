@@ -77,7 +77,7 @@ CUSTOM="$ZSH_CUSTOM"
 
 install-plugin() {
     TMPWD="$(pwd)"
-    name="$(basename \"$1\" | sed 's/\.git//')"
+    name="$(basename $1 | sed 's/\.git//')"
     if [ ! -d "$CUSTOM/plugins/$name" ]; then
         cd "$CUSTOM/plugins"
         git clone "$1"
@@ -88,7 +88,7 @@ install-plugin() {
 
 install-plugin "https://github.com/zsh-users/zsh-autosuggestions.git"
 install-plugin "https://github.com/zsh-users/zsh-completions.git"
-install-plugin "https://github.com/zsh-users/zsh0syntax-highlighting.git"
+install-plugin "https://github.com/zsh-users/zsh-syntax-highlighting.git"
 
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
