@@ -79,16 +79,19 @@ TMPWD="$(pwd)"
 if [ ! -d "$CUSTOM/plugins/zsh-autosuggestions" ]; then
     cd "$CUSTOM/plugins"
     git clone "https://github.com/zsh-users/zsh-autosuggestions.git"
+    chmod g-w o-w "zsh-autosuggestions"
     cd "$TMPWD"
 fi
 if [ ! -d "$CUSTOM/plugins/zsh-completions" ]; then
     cd "$CUSTOM/plugins"
     git clone "https://github.com/zsh-users/zsh-completions.git"
+    chmod g-w o-w "zsh-completions"
     cd "$TMPWD"
 fi
 if [ ! -d "$CUSTOM/plugins/zsh-syntax-highlighting" ]; then
     cd "$CUSTOM/plugins"
     git clone "https://github.com/zsh-users/zsh-syntax-highlighting.git"
+    chmod g-w o-w "zsh-syntax-highlighting"
     cd "$TMPWD"
 fi
 
