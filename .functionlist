@@ -28,4 +28,6 @@ alias :q="cd .."
 alias open="xdg-open"
 
 # IP address of Raspberry Pi
-export PI_IP="192.168.1.194"
+export PI_IP="pi.calder.dev"
+
+alias pnglatex="pnglatex -p amsmath:amsfonts:amsthm:amssymb:gensymb -d 1000"
