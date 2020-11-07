@@ -86,6 +86,10 @@ install-plugin() {
     fi
 }
 
+# Despite the chmod, sometimes (on MacOS in particular), permissioning is bad.
+# So ignore it.
+ZSH_DISABLE_COMPFIX=true
+
 install-plugin "https://github.com/zsh-users/zsh-autosuggestions.git"
 install-plugin "https://github.com/zsh-users/zsh-completions.git"
 install-plugin "https://github.com/zsh-users/zsh-syntax-highlighting.git"
