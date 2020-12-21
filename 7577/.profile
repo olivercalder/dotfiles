@@ -59,10 +59,6 @@ if [ -d "$HOME/coding/scripts/remote" ]; then
     export PATH="$HOME/coding/scripts/remote:$PATH"
 fi
 
-if [ -d "$HOME/coding/scripts/pop" ]; then
-    export PATH="$HOME/coding/scripts/pop:$PATH"
-fi
-
 if [ -d "$HOME/coding/scripts/7577" ]; then
     export PATH="$HOME/coding/scripts/7577:$PATH"
 fi
