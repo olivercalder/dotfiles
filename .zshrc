@@ -139,6 +139,7 @@ source $ZSH/oh-my-zsh.sh
 
 export TIMEFMT=$'\n%J\nreal\t%E\nuser\t%U\nsys\t%S\ncpu\t%P\nmem\t%MkB'
 
+[ -f ~/.profile ] && source ~/.profile
 [ -f ~/.functionlist ] && source ~/.functionlist
 
 { [ "$HOST" = "station" ] || [ "$HOST" = "7577" ] } && export DEFAULT_USER="oac"
