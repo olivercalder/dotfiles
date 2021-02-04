@@ -25,6 +25,7 @@ set mouse=a		" Enable mouse usage (all modes)
 set autoindent
 set tabstop=4
 set shiftwidth=4
+set shiftround
 set softtabstop=4
 set expandtab
 set title
@@ -37,8 +38,16 @@ augroup numbertoggle
   autocmd BufLeave,FocusLost,InsertEnter,WinLeave   * if &nu | set nornu | endif
 augroup END
 
-" Let <shift>+y yank to end of line
+" copy to end of line
 nnoremap Y y$
+" copy to system clipboard
+vnoremap gy "+y
+" copy whole file to system clipboard
+nnoremap gY gg"+yG
+
+" Enable TAB indent and SHIFT-TAB unindent
+vnoremap <silent> <TAB> >gv
+vnoremap <silent> <S-TAB> <gv
 
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -55,6 +64,8 @@ Plug 'junegunn/vim-easy-align'
 
 Plug 'reedes/vim-pencil'
 
+Plug 'godlygeek/tabular'
+
 call plug#end()
 
 "let g:pencil#textwidth = 74
@@ -65,4 +76,20 @@ augroup pencil
   autocmd!
   autocmd FileType markdown,mkd call pencil#init()
   autocmd FileType text         call pencil#init()
+augroup END
+
+function! s:align()
+  let p = '^\s*|\s.*\s|\s*$'
+  if exists(':Tabularize') && getline('.') =~# '^\s*|' && (getline(line('.')-1) =~# p || getline(line('.')+1) =~# p)
+    let column = strlen(substitute(getline('.')[0:col('.')],'[^|]','','g'))
+    let position = strlen(matchstr(getline('.')[0:col('.')],'.*|\s*\zs.*'))
+    Tabularize/\\\@<!|/l1
+    normal! 0
+    call search(repeat('[^|]*|',column).'\s\{-\}'.repeat('.',position),'ce',line('.'))
+  endif
+endfunction
+
+augroup tabular
+  autocmd!
+  autocmd FileType markdown,mkd inoremap <buffer><silent> <Bar> <Bar><Esc>:call <SID>align()<CR>a
 augroup END
