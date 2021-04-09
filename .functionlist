@@ -23,6 +23,7 @@ alias lsf="ls -F --color"
 
 # Alias for vim navigation out of directory
 alias :q="cd .."
+alias :e=vim
 
 # Alias for open to run xdg-open rather than openvt
 alias open="xdg-open"
