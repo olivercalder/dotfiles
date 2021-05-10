@@ -66,6 +66,8 @@ Plug 'reedes/vim-pencil'
 
 Plug 'godlygeek/tabular'
 
+Plug 'christoomey/vim-tmux-navigator'
+
 call plug#end()
 
 "let g:pencil#textwidth = 74
