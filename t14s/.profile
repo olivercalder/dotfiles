@@ -43,7 +43,7 @@ go version 1>/dev/null 2>/dev/null && {
     export GOPATH="$GOLIB:$GOPROJ"
 }
 
-if [ $XDG_SESSION_TYPE = "wayland" ]; then
+if [ "$XDG_SESSION_TYPE" = "wayland" ]; then
     export MOZ_ENABLE_WAYLAND=1
 fi
 
