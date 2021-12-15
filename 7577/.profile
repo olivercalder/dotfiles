@@ -8,12 +8,6 @@
 # for ssh logins, install and configure the libpam-umask package.
 #umask 022
 
-if [ -n "$SOURCED_PROFILE" ]; then
-    return
-fi
-
-export SOURCED_PROFILE=1
-
 # if running bash
 if [ -n "$BASH_VERSION" ]; then
     # include .bashrc if it exists
@@ -22,25 +16,35 @@ if [ -n "$BASH_VERSION" ]; then
     fi
 fi
 
+export-once () {
+    case ":${PATH}:" in
+        *:"$1":*)
+            ;;
+        *)
+            export PATH="$1:$PATH"
+            ;;
+    esac
+}
+
 # set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/bin" ]; then
-    export PATH="$HOME/bin:$PATH"
+    export-once "$HOME/bin"
 fi
 
 # set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/.local/bin" ]; then
-    export PATH="$HOME/.local/bin:$PATH"
+    export-once "$HOME/.local/bin"
 fi
 
-if [ -d "$HOME/.cargo" ] && [ -z "$(echo $PATH | grep ".cargo/bin")" ]; then
+if [ -d "$HOME/.cargo" ]; then
     source "$HOME/.cargo/env"
 fi
 
 go version 1>/dev/null 2>/dev/null && {
     export GOLIB="$HOME/.go"
-    export PATH="$PATH:$GOLIB/bin"
     export GOPROJ="$HOME/coding/go"
     export GOPATH="$GOLIB:$GOPROJ"
+    export-once "$GOLIB/bin"
 }
 
 if [ "$XDG_SESSION_TYPE" = "wayland" ]; then
@@ -48,17 +52,17 @@ if [ "$XDG_SESSION_TYPE" = "wayland" ]; then
 fi
 
 if [ -d "$HOME/coding/scripts/common" ]; then
-    export PATH="$HOME/coding/scripts/common:$PATH"
+    export-once "$HOME/coding/scripts/common"
 fi
 
 if [ -d "$HOME/coding/scripts/backup" ]; then
-    export PATH="$HOME/coding/scripts/backup:$PATH"
+    export-once "$HOME/coding/scripts/backup"
 fi
 
 if [ -d "$HOME/coding/scripts/remote" ]; then
-    export PATH="$HOME/coding/scripts/remote:$PATH"
+    export-once "$HOME/coding/scripts/remote"
 fi
 
 if [ -d "$HOME/coding/scripts/7577" ]; then
-    export PATH="$HOME/coding/scripts/7577:$PATH"
+    export-once "$HOME/coding/scripts/7577"
 fi
