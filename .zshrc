@@ -145,3 +145,5 @@ export TIMEFMT=$'\n%J\nreal\t%E\nuser\t%U\nsys\t%S\ncpu\t%P\nmem\t%MkB'
 { [ "$HOST" = "station" ] || [ "$HOST" = "7577" ]  || [ "$HOST" = "t14s" ] } && export DEFAULT_USER="oac"
 
 setopt extendedglob
+
+export GPG_TTY=$(tty)
