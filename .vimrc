@@ -147,7 +147,12 @@ Plug 'godlygeek/tabular'
 
 Plug 'christoomey/vim-tmux-navigator'
 
+Plug 'vivien/vim-linux-coding-style'
+
 call plug#end()
+
+let g:linuxsty_patterns = [ "/linux/", "/kernel/" ]
+nnoremap <silent> <leader>a :LinuxCodingStyle<cr>
 
 let g:airline_theme='minimalist'
 
