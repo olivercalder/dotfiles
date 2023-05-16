@@ -38,7 +38,7 @@ set tabstop=4
 set shiftwidth=4
 set shiftround
 set softtabstop=4
-set expandtab
+set noexpandtab
 set title
 
 " Show @@@ in the last line if it is truncated.
