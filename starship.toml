@@ -1,0 +1,67 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+format = """
+$username$hostname\
+[](bold inverted fg:cyan)\
+$directory\
+[](bold fg:cyan bg:green)\
+$git_branch\
+$git_commit\
+$git_state\
+$git_status\
+[ ](fg:green)\
+$line_break$character"""
+
+add_newline = false
+
+[username]
+show_always = true
+style_user = "bold fg:bright-white"
+style_root = "bold fg:bright-white"
+format = '[ $user]($style)'
+
+[hostname]
+ssh_only = false
+style = "bold fg:bright-white"
+format = '[@$hostname ]($style)'
+
+[directory]
+style = "bold inverted fg:cyan"
+format = "[ $path ]($style)"
+truncation_length = 9999
+truncate_to_repo = false
+truncation_symbol = ""
+
+[git_branch]
+style = "bold inverted fg:green"
+format = '[ $symbol$branch(:$remote_branch) ]($style)'
+
+[git_commit]
+style = "bold inverted fg:green"
+format = '[\($hash$tag\) ]($style)'
+
+[git_state]
+style = "bold inverted fg:green"
+format = '[\($state( $progress_current/$progress_total)\) ]($style)'
+
+[git_status]
+style = "bold inverted fg:green"
+format = '[(\[$all_status$ahead_behind\] )]($style)'
+
+[time]
+disabled = false
+time_format = "%T"
+style = "bold inverted fg:red"
+format = '[ $time ]($style)'
+
+[line_break]
+disabled = true
+
+[character]
+disabled = true
+success_symbol = '[\$](bold fg:green)'
+error_symbol = '[\$](bold fg:red)'
+vimcmd_symbol = '[N](bold fg:green)'
+vimcmd_replace_one_symbol = '[R](bold fg:purple)'
+vimcmd_replace_symbol = '[R](bold fg:purple)'
+vimcmd_visual_symbol = '[V](bold fg:yellow)'
