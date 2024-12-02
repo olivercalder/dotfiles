@@ -33,7 +33,10 @@ source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 function set_win_title(){
-    echo -ne "\033]0; $PWD \007"
+    me="$(whoami)"
+    hn="$(hostname --short)"
+    cwd="$(pwd | sed "s:$HOME:~:")"
+    echo -ne "\033]0; $me@$hn:$cwd \007"
 }
 precmd_functions+=(set_win_title)
 
