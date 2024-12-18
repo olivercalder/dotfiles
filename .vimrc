@@ -149,6 +149,8 @@ Plug 'christoomey/vim-tmux-navigator'
 
 Plug 'vivien/vim-linux-coding-style'
 
+Plug 'rust-lang/rust.vim'
+
 call plug#end()
 
 let g:linuxsty_patterns = [ "/linux/", "/kernel/" ]
@@ -181,3 +183,5 @@ augroup tabular
   autocmd!
   autocmd FileType markdown,mkd inoremap <buffer><silent> <Bar> <Bar><Esc>:call <SID>align()<CR>a
 augroup END
+
+let g:rustfmt_autosave = 1
