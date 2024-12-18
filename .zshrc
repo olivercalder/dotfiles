@@ -21,6 +21,7 @@ compinit
 # End of lines added by compinstall
 
 # Aliases for convenience
+alias grep="grep --color=auto"
 alias ls="ls --color=auto"
 alias lsc="ls -F --color=never"
 alias lsf="ls -F --color"
