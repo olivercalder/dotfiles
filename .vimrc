@@ -48,6 +48,9 @@ set display=truncate
 " text scroll if you mouse-click near the start or end of the window.
 set scrolloff=5
 
+" Allow handling huge files.
+set maxmempattern=2000000
+
 " CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,
 " so that you can undo CTRL-U after inserting a line break.
 " Revert with ":iunmap <C-U>".
