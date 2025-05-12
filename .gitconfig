@@ -4,3 +4,5 @@
 	gpgSign = true
 [core]
 	pager = less -+X -+F
+[diff]
+	wsErrorHighlight = all
