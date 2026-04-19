@@ -90,7 +90,10 @@ endif
 
 " If using a dark background within the editing area and syntax highlighting
 " turn on this option as well
-set background=dark
+let colorscheme = system("gsettings get org.gnome.desktop.interface color-scheme")
+if colorscheme ==? "'prefer-dark'\n"
+  set background=dark
+endif
 
 " Convenient command to see the difference between the current buffer and the
 " file it was loaded from, thus the changes you made.
